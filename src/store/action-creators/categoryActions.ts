@@ -1,7 +1,7 @@
 import { Dispatch } from "redux";
 import { CategoryAction, CategoryActionTypes } from "../../types/category";
 import categories from "../../data/categories.json";
-import database from "../../data/database.json";
+
 
 const fetchCategories = () =>
   new Promise((resolve) => {
