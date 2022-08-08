@@ -12,21 +12,29 @@ export function MainSection({ }) {
     loadCategories()
   }, [])
 
+  
+
   const [isShowed, setIsShowed] = useState(false)
   const [someCategory, setSomeCategory] = useState(1)
-
+  // const [ label, setLabel] = useState('manufacturer')
+  // const [ transactionDataArray, setTransactionDataArray] = useState([])
 
 
   const selectChangeHandler = event => {
-    console.log(event.target.value)
     setSomeCategory(event.target.value)
     setIsShowed(true)
   }
 
-  const itemChangeHandler = event => {
-    console.log(event.target.value)
-    setSomeItem(event.target.value)
-  }
+  
+
+  // const itemChangeHandler = event => {
+  //   setLabel('')
+  //   const transactionData =  event.target[event.target.selectedIndex].text
+  //   setTransactionDataArray([...transactionDataArray, transactionData])
+
+  //   // selectedValues.push(event.target[event.target.selectedIndex])
+  //   setSomeItem(event.target.value)
+  // }
 
 
 
@@ -39,7 +47,8 @@ export function MainSection({ }) {
 
 
 
-  console.log(items)
+  // console.log(items)
+  
 
   return (
     <div className="wrapper">
@@ -56,7 +65,6 @@ export function MainSection({ }) {
             />
             {isShowed && <MultiSelect
               value={someItem}
-              onChange={itemChangeHandler}
               options={items} />}
           </div>
         </div>
