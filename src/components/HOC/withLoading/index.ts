@@ -1,1 +1,1 @@
-export { withLoading as default } from "./withLoading";
+export { withLoading as default } from "./WithLoading";
