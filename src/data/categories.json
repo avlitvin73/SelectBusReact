@@ -1,0 +1,16 @@
+[
+  {"id": 1, "name": "School bus", "flags": ""},
+  {"id": 2, "name": "Shuttle bus", "flags": ""},
+  {"id": 3, "name": "Minibus", "flags": ""},
+  {"id": 4, "name": "Minicoach", "flags": ""},
+  {"id": 5, "name": "Double-decker bus", "flags": ""},
+  {"id": 6, "name": "Single-decker bus", "flags": ""},
+  {"id": 7, "name": "Low-floor bus", "flags": ""},
+  {"id": 8, "name": "Step-entrance bus", "flags": ""},
+  {"id": 9, "name": "Trolleybus", "flags": "electric"},
+  {"id": 10, "name": "Articulated bus", "flags": ""},
+  {"id": 11, "name": "Hybrid bus", "flags": ""},
+  {"id": 12, "name": "Police bus", "flags": ""},
+  {"id": 13, "name": "Offroad bus", "flags": ""},
+  {"id": 14, "name": "Open top bus", "flag": ""}
+]
