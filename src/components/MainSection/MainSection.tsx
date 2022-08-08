@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import MultiSelect from "../MultiSelect";
 import Select from "../Select";
 import { useActions } from "./hooks/useActions";
@@ -11,10 +11,25 @@ export function MainSection({ }) {
   useEffect(() => {
     loadCategories()
   }, [])
+
+
+  const [someValue, setSomeVaue] = useState(1)
+
+
+  const selectChangeHandler = event => {
+    console.log(event.target.value)
+    setSomeVaue(event.target.value)
+  }
+
   return (
     <>
       <h1>MainSection component</h1>
-      <Select />
+      <Select
+        label="Выберете"
+        value={someValue}
+        onChange={selectChangeHandler}
+        options={categories}
+      />
       <MultiSelect />
     </>
 
