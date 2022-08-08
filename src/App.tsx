@@ -1,9 +1,10 @@
 import './App.css'
+import MainSection from './components/MainSection'
 
 export default function App() {
   return (
     <main>
-      <h1>Init</h1>
+      <MainSection />
     </main>
   )
 }
