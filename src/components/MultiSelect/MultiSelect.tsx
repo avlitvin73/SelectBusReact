@@ -4,14 +4,40 @@ import "./MultiSelect.css";
 export function MultiSelect(props) {
   const [label, setLabel] = useState("manufacturer");
   const [transactionDataArray, setTransactionDataArray] = useState([]);
+  
+  const [page, setPage] = useState(0)
+
+  const optionsOnPage = props.options.slice((props.resultsOnpage-1) + page)
 
   const itemChangeHandler = (event) => {
     setLabel("");
-    const transactionData = event.target[event.target.selectedIndex].text;
-    setTransactionDataArray([...transactionDataArray, transactionData]);
-    setTransactionDataArray((data) =>
-      data.filter((value, index) => data.indexOf(value) === index)
-    );
+
+    switch (event.target[event.target.selectedIndex].value) {
+      case "menuInfo":
+        return;
+
+      case "menuPriveous":
+        if (page > 0) {
+          setPage(page-1)
+        }
+        return;
+
+      case "menuNext":
+        console.log(optionsOnPage.length)
+        if (optionsOnPage.length > 1) {
+          setPage(page+1)
+        }
+        
+        return;
+
+      default:
+        console.log(event.target[event.target.selectedIndex].value);
+        const transactionData = event.target[event.target.selectedIndex].text;
+        setTransactionDataArray([...transactionDataArray, transactionData]);
+        setTransactionDataArray((data) =>
+          data.filter((value, index) => data.indexOf(value) === index)
+        );
+    }
   };
 
   const buttonChangeHandler = (event) => {
@@ -39,6 +65,7 @@ export function MultiSelect(props) {
           type="checkbox"
         />
         <label htmlFor="checkbox-2" className="multiselect_label"></label>
+
         <select
           className="field_select"
           name="manufacturer"
@@ -46,13 +73,21 @@ export function MultiSelect(props) {
           onChange={itemChangeHandler}
           multiple
         >
-          {props.options.map((option, index) => {
-            return (
-              <option value={option.id} key={option.id}>
-                {option.name}
-              </option>
-            );
-          })}
+          <optgroup id="menu" className="pagination">
+            <option value="menuPriveous">priveous</option>
+            <option value="menuInfo">{page+1}</option>
+            <option value="menuNext">next</option>
+          </optgroup>
+          <optgroup className="main">
+            {optionsOnPage.map((option, index) => {
+              return (
+                <option value={option.id} key={option.id}>
+                  {option.name}
+                </option>
+              );
+            })}
+          </optgroup>
+          
         </select>
       </div>
     </div>

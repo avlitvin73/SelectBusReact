@@ -64,6 +64,7 @@ export function MainSection({ }) {
               options={categories}
             />
             {isShowed && <MultiSelect
+              resultsOnpage={2}
               value={someItem}
               options={items} />}
           </div>
