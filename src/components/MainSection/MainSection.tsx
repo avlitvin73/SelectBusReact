@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import MultiSelect from "../MultiSelect";
 import Select from "../Select";
 import { useActions } from "./hooks/useActions";
@@ -15,7 +15,7 @@ export function MainSection({}) {
   const [isShowed, setIsShowed] = useState(false);
   const [someCategory, setSomeCategory] = useState(1);
 
-  const selectChangeHandler = (event) => {
+  const selectChangeHandler = (event: { target: { value: SetStateAction<number>; }; }) => {
     setSomeCategory(event.target.value);
     setIsShowed(true);
   };
@@ -23,7 +23,7 @@ export function MainSection({}) {
   const { items } = useTypedSelector((state) => state.item);
   const { loadItems } = useActions();
   useEffect(() => {
-    loadItems(someCategory);
+    loadItems(''+someCategory);
   }, [someCategory]);
   const [someItem, setSomeItem] = useState(1);
 
@@ -36,10 +36,9 @@ export function MainSection({}) {
             <Select
               value={someCategory}
               onChange={selectChangeHandler}
-              options={categories}
-            />
+              options={categories} categories={[]}            />
             {isShowed && (
-              <MultiSelect resultsOnpage={2} value={someItem} options={items} />
+              <MultiSelect items={[]} resultsOnpage={2} value={someItem} options={items} />
             )}
           </div>
         </div>

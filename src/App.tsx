@@ -1,11 +1,15 @@
 import './App.css'
 import './static/css/global.css'
 import MainSection from './components/MainSection'
+import withLoading from './components/HOC/withLoading'
 
-export default function App() {
+
+function App() {
   return (
     <main>
       <MainSection />
     </main>
   )
 }
+
+export default withLoading(App)

@@ -1,11 +1,16 @@
-interface Item {
+export interface Item {
   id: number,
+  parent_id:string,
   name: string,
   flag: string
 }
 
 export interface ItemState {
-  items: Item[];
+  items: Item[]
+  resultsOnpage: number,
+  options: Item[],
+  value: number
+
 }
 export enum ItemActionTypes {
   SET_ITEMS = 'SET_ITEMS',

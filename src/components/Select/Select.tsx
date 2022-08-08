@@ -1,6 +1,7 @@
+import { CategoryState } from '../../types/category'
 import './Select.css'
 
-export function Select(props) {
+export function Select(props:CategoryState) {
   return (
     <div className="select">
       <span className="select_text">Select category</span>
@@ -13,7 +14,7 @@ export function Select(props) {
           value={props.value}
           onChange={props.onChange}
         >
-          {props.options.map((option, index) => {
+          {props.options!.map((option, index) => {
             return (
               <option
 

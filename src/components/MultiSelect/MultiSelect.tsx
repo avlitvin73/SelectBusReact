@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { ItemState } from "../../types/item";
 import "./MultiSelect.css";
 
-export function MultiSelect(props) {
+
+export function MultiSelect(props: ItemState) {
   const [label, setLabel] = useState("manufacturer");
   const [transactionDataArray, setTransactionDataArray] = useState([]);
 
@@ -13,8 +15,9 @@ export function MultiSelect(props) {
   );
   const itemChangeHandler = (event) => {
     setLabel("");
-
-    switch (event.target[event.target.selectedIndex].value) {
+    const target = event.target as EventTarget
+    const seltctTarget = target[event.target.selectedIndex]
+    switch ((target as HTMLInputElement).value) {
       case "menuInfo":
         return;
 

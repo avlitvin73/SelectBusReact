@@ -1,11 +1,19 @@
-interface Category {
+export interface Category {
   id: number,
   name: string,
   flag: string
 }
 
+interface Options {
+  id: number,
+  name: string
+}
+
 export interface CategoryState {
-  categories: Category[];
+  categories: Category[],
+  value?: number,
+  onChange?: any,
+  options?: Options[]
 }
 export enum CategoryActionTypes {
   SET_CATEGORIES = 'SET_CATEGORIES',
