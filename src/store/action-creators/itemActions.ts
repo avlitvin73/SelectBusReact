@@ -8,11 +8,14 @@ const fetchItems = () =>
     setTimeout(() => resolve(database), 0);
   });
 
-export const loadItems = () => {
+export const loadItems = (category) => {
   return async (dispatch: Dispatch<ItemAction>) => {
 
     const data = await fetchItems();
-    dispatch({ type: ItemActionTypes.SET_ITEMS, payload: data });
+    console.log(data)
+    const filteredData = data.filter((item) => item.parent_id === category)
+    console.log('category', category)
+    dispatch({ type: ItemActionTypes.SET_ITEMS, payload: filteredData });
   };
 };
 

@@ -1,0 +1,44 @@
+.container {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1170px;
+  box-sizing: border-box;
+  z-index: 5;
+}
+
+.wrapper > .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.createAccount {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 30px 16px;
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  color: #001b38;
+  box-sizing: border-box;
+
+  ///overflow: hidden;
+
+  z-index: 100;
+
+  @media (min-width: 450px) {
+    padding: 50px 65px;
+  }
+}
+
+.createAccount_inner {
+  position: relative;
+  width: 100%;
+}
