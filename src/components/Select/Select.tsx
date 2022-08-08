@@ -6,7 +6,7 @@ export function Select(props) {
       <span className="select_text">Select category</span>
       <div className="select_block">
         <label htmlFor="select-1" className="field_select">Category</label>
-        <input id="checkbox-1" className="select_checkbox" type="checkbox" checked />
+        <input id="checkbox-1" className="select_checkbox" type="checkbox" checked readOnly/>
         <label htmlFor="checkbox-1" className="select_label"></label>
         <select
           className="field_select"

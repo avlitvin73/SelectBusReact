@@ -7,7 +7,6 @@ const fetchItems = () =>
   new Promise((resolve) => {
     setTimeout(() => resolve(database), 0);
   });
-
 export const loadItems = (category) => {
   return async (dispatch: Dispatch<ItemAction>) => {
 

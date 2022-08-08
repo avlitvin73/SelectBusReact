@@ -3,52 +3,29 @@ import MultiSelect from "../MultiSelect";
 import Select from "../Select";
 import { useActions } from "./hooks/useActions";
 import { useTypedSelector } from "./hooks/useTypedSelector";
-import './MainSection.css'
+import "./MainSection.css";
 
-export function MainSection({ }) {
-  const { categories } = useTypedSelector(state => state.category)
-  const { loadCategories } = useActions()
+export function MainSection({}) {
+  const { categories } = useTypedSelector((state) => state.category);
+  const { loadCategories } = useActions();
   useEffect(() => {
-    loadCategories()
-  }, [])
+    loadCategories();
+  }, []);
 
-  
+  const [isShowed, setIsShowed] = useState(false);
+  const [someCategory, setSomeCategory] = useState(1);
 
-  const [isShowed, setIsShowed] = useState(false)
-  const [someCategory, setSomeCategory] = useState(1)
-  // const [ label, setLabel] = useState('manufacturer')
-  // const [ transactionDataArray, setTransactionDataArray] = useState([])
+  const selectChangeHandler = (event) => {
+    setSomeCategory(event.target.value);
+    setIsShowed(true);
+  };
 
-
-  const selectChangeHandler = event => {
-    setSomeCategory(event.target.value)
-    setIsShowed(true)
-  }
-
-  
-
-  // const itemChangeHandler = event => {
-  //   setLabel('')
-  //   const transactionData =  event.target[event.target.selectedIndex].text
-  //   setTransactionDataArray([...transactionDataArray, transactionData])
-
-  //   // selectedValues.push(event.target[event.target.selectedIndex])
-  //   setSomeItem(event.target.value)
-  // }
-
-
-
-  const { items } = useTypedSelector(state => state.item)
-  const { loadItems } = useActions()
+  const { items } = useTypedSelector((state) => state.item);
+  const { loadItems } = useActions();
   useEffect(() => {
-    loadItems(someCategory)
-  }, [someCategory])
-  const [someItem, setSomeItem] = useState(1)
-
-
-
-  // console.log(items)
-  
+    loadItems(someCategory);
+  }, [someCategory]);
+  const [someItem, setSomeItem] = useState(1);
 
   return (
     <div className="wrapper">
@@ -56,21 +33,17 @@ export function MainSection({ }) {
         <h1>MainSection component</h1>
         <div className="createAccount">
           <div className="createAccount_inner">
-
-
             <Select
               value={someCategory}
               onChange={selectChangeHandler}
               options={categories}
             />
-            {isShowed && <MultiSelect
-              resultsOnpage={2}
-              value={someItem}
-              options={items} />}
+            {isShowed && (
+              <MultiSelect resultsOnpage={2} value={someItem} options={items} />
+            )}
           </div>
         </div>
       </div>
     </div>
-
-  )
+  );
 }
