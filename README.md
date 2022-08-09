@@ -1,13 +1,22 @@
-## Running React on Repl.it
+## Running React for form with dropdown list and pagination
+![изображение](https://user-images.githubusercontent.com/78950640/183534965-b31afb91-100e-4124-b46a-db2740b59d05.png)
 
-[React](https://reactjs.org/) is a popular JavaScript library for building user interfaces.
-
-[Vite](https://vitejs.dev/) is a blazing fast frontend build tool that includes features like Hot Module Reloading (HMR), optimized builds, and TypeScript support out of the box.
-
-Using the two in conjunction is one of the fastest ways to build a web app.
+* Created data for components
+ * * json list of category names (at least 5)
+ * * * Category object fields {id: <int>, name: <string>, flags: <string>}
+* * json-list of names of child elements of categories (at least 2 for each category, names are allowed)
+* * * Child element object fields {id: <int>, parent_id: <int>, name: <string>, flags: <string>}
+* Implemented redux-storage (using middleware: redux-thunk
+* * Section - Categories (category) - type <Array of objects>
+* * Section - Child objects (item) - type <Array of objects>
+* * Implemented CRUD functionality for creating/modifying/deleting storage partitions.
+* * * Note. The read functionality does not need to be implemented.
+* Implemented select component with special data
+* Implemented multiselect component
+* * Drop-down list with filtered data 
+* * Forward / backward arrows, the current page from the selection
+* Implemented synchronization select with multiselect
 
 ### Getting Started
-- Hit run
-- Edit [App.tsx](#src/App.tsx) and watch it live update!
-
-By default, Replit runs the `dev` script, but you can configure it by changing the `run` field in the [configuration file](#.replit). Here are the vite docs for [serving production websites](https://vitejs.dev/guide/build.html)
+- npm i
+- npm run dev
