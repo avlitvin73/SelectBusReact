@@ -17,6 +17,10 @@
 * * Forward / backward arrows, the current page from the selection
 * Implemented synchronization select with multiselect
 
+## 
+Deploy:
+https://selectbusreactdeploy.aleksandrlitvin.repl.co/
+
 ### Getting Started
-- npm i
+- npm install
 - npm run dev
